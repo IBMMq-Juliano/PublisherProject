@@ -1,0 +1,1 @@
+sudo mvn exec:java -Dexec.mainClass="com.example.publisher.Publisher"
