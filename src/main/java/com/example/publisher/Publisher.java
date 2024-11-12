@@ -21,11 +21,11 @@ public class Publisher {
             // Define o hostname do servidor IBM MQ
             factory.setHostName("localhost");
             // Define a porta onde o servidor IBM MQ está ouvindo
-            factory.setPort(1515);
+            factory.setPort(1616);
             // Define o tipo de transporte como TCP/IP para uma conexão de cliente
             factory.setTransportType(JMSC.MQJMS_TP_CLIENT_MQ_TCPIP);
             // Configura o nome do gerenciador de filas do IBM MQ
-            factory.setQueueManager("QMSERPRO");
+            factory.setQueueManager("QMEXAMPLES");
             // Configura o canal de comunicação do IBM MQ
             factory.setChannel("ADMIN.CHL");
             // Cria uma conexão usando as configurações da fábrica de conexões
@@ -33,7 +33,7 @@ public class Publisher {
             // Cria uma sessão JMS sem transações e com confirmação automática de mensagens
             Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             // Cria um tópico com o nome especificado, que será utilizado para enviar mensagens
-            Topic topic = session.createTopic("topic://TOPICO1");
+            Topic topic = session.createTopic("topic://T_ORDERS");
             // Cria um produtor de mensagens associado ao tópico configurado
             MessageProducer producer = session.createProducer(topic);
             // Define o modo de entrega como PERSISTENT para que as mensagens sejam persistentes
